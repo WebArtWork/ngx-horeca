@@ -1,0 +1,49 @@
+<main class="mx-auto max-w-[var(--container)] px-2 pb-8 pt-2 sm:px-4 sm:pb-10">
+	<h1 class="sr-only">
+		<span [translate]="pageConfig.title">{{ pageConfig.title }}</span>
+	</h1>
+
+	@if (!showEmptyState()) {
+		<app-menu-categories
+			[extraLinks]="categoryLinks"
+			[focusedCategories]="focusedCategories()"
+			[filteredCategories]="filteredCategories()"
+			[filteredSelectedCategories]="filteredSelectedCategories()"
+			(categorySelected)="onCategorySelected($event)"
+		/>
+
+		<app-menu-dishes
+			[dishes]="filteredDishes()"
+			[selectedCategories]="filteredSelectedCategories()"
+		/>
+	} @else {
+		<section
+			class="rounded-[1.2rem] border border-dashed border-[var(--c-border)] bg-[var(--c-bg-secondary)] px-4 py-10 text-center sm:px-6 sm:py-14"
+		>
+			<div
+				class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-secondary)]"
+			>
+				<span class="material-symbols-outlined text-[28px]" aria-hidden="true">{{
+					pageConfig.icon
+				}}</span>
+			</div>
+
+			<p
+				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+			>
+				<span [translate]="pageConfig.title">{{ pageConfig.title }}</span>
+			</p>
+			<h1 class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]">
+				<span [translate]="pageConfig.emptyTitle">{{ pageConfig.emptyTitle }}</span>
+			</h1>
+			<p class="mx-auto mt-2 max-w-[28rem] text-sm leading-6 text-[var(--c-text-muted)]">
+				<span [translate]="pageConfig.emptyDescription">{{
+					pageConfig.emptyDescription
+				}}</span>
+			</p>
+			<a routerLink="/menu" class="ui-btn ui-btn-primary mt-6 min-w-40">
+				<span [translate]="'Переглянути повне меню'">{{ 'Переглянути повне меню' }}</span>
+			</a>
+		</section>
+	}
+</main>

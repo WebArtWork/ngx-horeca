@@ -1,0 +1,46 @@
+[
+	{
+		"slug": "homemade-syrnyky-with-sour-cream",
+		"categorySlug": "breakfasts",
+		"image": "/dish/homemade-syrnyky-with-sour-cream.webp",
+		"name": "Домашні сирники зі сметаною",
+		"description": "Рум'яні сирники, подані теплими зі сметаною.",
+		"price": 101,
+		"labels": [
+			"Сніданок",
+			"200 г"
+		],
+		"fullDescription": "Ніжні домашні сирники з приємною сирною текстурою, обсмажені до золотистої скоринки та подані зі сметаною. Традиційний солодкий сніданок із домашнім настроєм.",
+		"suggested": [
+			"cappuccino"
+		],
+		"cookTimeMinutes": 12,
+		"caloriesKcal": 301,
+		"portion": "200 г",
+		"allergens": [
+			"молоко"
+		]
+	},
+	{
+		"slug": "cappuccino",
+		"categorySlug": "coffee",
+		"image": "/dish/cappuccino.webp",
+		"name": "Капучино",
+		"description": "Еспресо зі спіненим молоком і ніжним шаром піни.",
+		"price": 61,
+		"labels": [
+			"Кава",
+			"250 мл"
+		],
+		"fullDescription": "Збалансований капучино на основі свіжого еспресо, спіненого молока та ніжної піни. Подається гарячим і добре смакує зі сніданком або десертом.",
+		"suggested": [
+			"homemade-syrnyky-with-sour-cream"
+		],
+		"cookTimeMinutes": 4,
+		"caloriesKcal": 91,
+		"portion": "250 мл",
+		"allergens": [
+			"молоко"
+		]
+	}
+]

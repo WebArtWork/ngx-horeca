@@ -1,0 +1,1 @@
+function e(s){let t=s.trim().replace(/^\/+/,``);return t.startsWith(`assets/`)?`/${t.replace(/^assets\//,``)}`:`/${t}`}export{e as t};

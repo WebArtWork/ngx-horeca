@@ -1,0 +1,228 @@
+<main class="spa mx-auto max-w-[var(--container)] px-3 pb-10 pt-3 sm:px-4 sm:pb-12">
+	<section class="spa__hero">
+		<div class="relative">
+			<p class="spa__eyebrow">
+				<span [translate]="page.eyebrow">{{ page.eyebrow }}</span>
+			</p>
+
+			<h1 class="spa__title">
+				<span [translate]="page.title">{{ page.title }}</span>
+			</h1>
+
+			<p class="spa__description">
+				<span [translate]="page.description">{{ page.description }}</span>
+			</p>
+
+			<div class="spa__tags" aria-label="Wellness services">
+				@for (tag of page.tags; track tag) {
+					<span class="spa__tag">
+						<span class="material-symbols-outlined" aria-hidden="true">SPA</span>
+						<span [translate]="tag">{{ tag }}</span>
+					</span>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="spa__services" aria-label="Spa services">
+		@for (service of page.services; track service.slug) {
+			<article class="spa__service">
+				<div class="spa__serviceHeader">
+					<div>
+						<p class="spa__eyebrow">
+							<span [translate]="service.subtitle">{{ service.subtitle }}</span>
+						</p>
+						<h2>
+							<span [translate]="service.title">{{ service.title }}</span>
+						</h2>
+					</div>
+
+					<span class="material-symbols-outlined spa__serviceIcon" aria-hidden="true">
+						@if (service.slug === 'hammam') {
+							water_drop
+						} @else if (service.slug === 'dry-sauna') {
+							hot_tub
+						} @else {
+							pool
+						}
+					</span>
+				</div>
+
+				<div class="spa__serviceBody">
+					<div class="spa__copy">
+						<p class="spa__text">
+							<span [translate]="service.description">{{ service.description }}</span>
+						</p>
+
+						<ul class="spa__features">
+							@for (feature of service.features; track feature) {
+								<li>
+									<span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+									<span [translate]="feature">{{ feature }}</span>
+								</li>
+							}
+						</ul>
+					</div>
+
+					<div class="spa__schedule" aria-label="Schedule and prices">
+						@for (group of service.schedule; track group.days) {
+							<div class="spa__scheduleGroup">
+								<div class="spa__scheduleDays">
+									<span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+									<span [translate]="group.days">{{ group.days }}</span>
+								</div>
+
+								<div class="spa__priceRows">
+									@for (item of group.items; track item.label + item.price) {
+										<div class="spa__priceRow">
+											<span [translate]="item.label">{{ item.label }}</span>
+											<strong [translate]="item.price">{{ item.price }}</strong>
+										</div>
+									}
+								</div>
+							</div>
+						}
+
+						<p class="spa__note">
+							<span [translate]="service.note">{{ service.note }}</span>
+						</p>
+					</div>
+				</div>
+
+				@if (service.images.length) {
+					<div class="spa__gallery">
+						@for (image of service.images; track image; let index = $index) {
+							<figure class="spa__imageFrame">
+								@if (!isImageUnavailable(image)) {
+									<img
+										class="spa__image"
+										[ngSrc]="imageSrc(image)"
+										translate
+										[translate]="{ alt: service.title }"
+										width="520"
+										height="360"
+										[loading]="index === 0 ? 'eager' : 'lazy'"
+										(error)="markImageUnavailable(image)"
+									/>
+								} @else {
+									<div class="spa__imageFallback" aria-hidden="true">
+										<span class="material-symbols-outlined">SPA</span>
+									</div>
+								}
+							</figure>
+						}
+					</div>
+				}
+			</article>
+		}
+	</section>
+
+	<form class="spa__booking" [formRoot]="bookingForm">
+		<div>
+			<p class="spa__eyebrow">
+				<span [translate]="'Велнес'">Велнес</span>
+			</p>
+			<h2>
+				<span [translate]="page.booking.title">{{ page.booking.title }}</span>
+			</h2>
+			<p>
+				<span [translate]="page.booking.text">{{ page.booking.text }}</span>
+			</p>
+		</div>
+
+		<div class="grid gap-4">
+			<label class="block">
+				<span class="flex items-center gap-2 text-sm font-semibold text-[var(--c-text-secondary)]">
+					<span>
+						<span [translate]="'Телефон'">{{ 'Телефон' }}</span>
+						<span class="text-[var(--c-secondary)]" aria-hidden="true">*</span>
+					</span>
+					<span
+						class="rounded-full bg-[color:rgba(197,61,61,0.14)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--c-secondary)]"
+						[translate]="'Обов’язково'"
+					>
+						{{ 'Обов’язково' }}
+					</span>
+				</span>
+				<input
+					class="mt-2 w-full rounded-[0.9rem] border border-[var(--c-secondary)] bg-[var(--c-bg-primary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] outline-none ring-1 ring-[color:rgba(197,61,61,0.24)] transition-colors focus:border-[var(--c-secondary)] focus:ring-2"
+					type="tel"
+					autocomplete="tel"
+					[attr.placeholder]="company.phone"
+					[formField]="bookingForm.phone"
+					[attr.aria-required]="true"
+					[attr.aria-invalid]="bookingForm.phone().invalid()"
+					aria-describedby="spa-phone-help"
+				/>
+				@if (bookingForm.phone().touched() && bookingForm.phone().invalid()) {
+					<p id="spa-phone-help" class="mt-2 text-xs font-semibold text-[var(--c-secondary)]">
+						<span [translate]="'Номер телефону обов’язковий'">
+							{{ 'Номер телефону обов’язковий' }}
+						</span>
+					</p>
+				} @else {
+					<p id="spa-phone-help" class="mt-2 text-xs font-medium text-[var(--c-text-muted)]">
+						<span [translate]="'Потрібен для підтвердження бронювання'">
+							{{ 'Потрібен для підтвердження бронювання' }}
+						</span>
+					</p>
+				}
+			</label>
+
+			<div class="grid gap-4 sm:grid-cols-2">
+				<label class="block">
+					<span class="text-sm font-semibold text-[var(--c-text-secondary)]">
+						<span [translate]="'Дата'">{{ 'Дата' }}</span>
+					</span>
+					<input
+						class="mt-2 w-full rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] outline-none transition-colors focus:border-[var(--c-secondary)]"
+						type="date"
+						[formField]="bookingForm.date"
+					/>
+				</label>
+
+				<label class="block">
+					<span class="text-sm font-semibold text-[var(--c-text-secondary)]">
+						<span [translate]="'Час'">{{ 'Час' }}</span>
+					</span>
+					<input
+						class="mt-2 w-full rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] outline-none transition-colors focus:border-[var(--c-secondary)]"
+						type="time"
+						[formField]="bookingForm.time"
+					/>
+				</label>
+			</div>
+
+			<label class="block">
+				<span class="text-sm font-semibold text-[var(--c-text-secondary)]">
+					<span [translate]="'Коментар'">{{ 'Коментар' }}</span>
+				</span>
+				<textarea
+					class="mt-2 min-h-24 w-full resize-y rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] outline-none transition-colors focus:border-[var(--c-secondary)]"
+					[formField]="bookingForm.message"
+				></textarea>
+			</label>
+
+			<button
+				class="ui-btn ui-btn-primary spa__bookingButton justify-center disabled:cursor-not-allowed disabled:opacity-60"
+				type="submit"
+				[disabled]="!!submittedRequest()"
+			>
+				<span class="material-symbols-outlined" aria-hidden="true">event_available</span>
+				<span [translate]="'Надіслати запит'">{{ 'Надіслати запит' }}</span>
+			</button>
+
+			@if (submitMessage()) {
+				<div class="rounded-[0.9rem] bg-[color:rgba(70,130,90,0.12)] p-3 text-sm font-semibold leading-6 text-[var(--c-text-secondary)]">
+					<span [translate]="submitMessage()">{{ submitMessage() }}</span>
+				</div>
+			}
+
+			@if (submitError()) {
+				<div class="rounded-[0.9rem] bg-[color:rgba(197,61,61,0.14)] p-3 text-sm font-semibold leading-6 text-[var(--c-secondary)]">
+					<span [translate]="submitError()">{{ submitError() }}</span>
+				</div>
+			}
+		</div>
+	</form>
+</main>

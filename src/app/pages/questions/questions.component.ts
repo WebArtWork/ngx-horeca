@@ -1,0 +1,21 @@
+import { Component, effect, inject } from '@angular/core';
+import { TranslateDirective } from '@wawjs/ngx-translate';
+import { QuestionService } from '@wawjs/ngx-horeca';
+
+@Component({
+	imports: [TranslateDirective],
+	templateUrl: './questions.component.html',
+	styleUrl: './questions.component.scss',
+})
+export class QuestionsComponent {
+	private readonly _questionService = inject(QuestionService);
+
+	protected readonly questions = this._questionService.questions;
+	protected readonly isLoading = this._questionService.isLoading;
+
+	constructor() {
+		effect(() => {
+			this._questionService.loadTranslations();
+		});
+	}
+}

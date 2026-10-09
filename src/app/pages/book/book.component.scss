@@ -1,0 +1,8 @@
+.offer-link,
+.booking-radio {
+	&:focus-within,
+	&:focus-visible {
+		outline: 2px solid var(--c-secondary);
+		outline-offset: 2px;
+	}
+}

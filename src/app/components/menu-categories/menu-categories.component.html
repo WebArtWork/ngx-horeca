@@ -1,0 +1,94 @@
+@let selectedCategories = filteredSelectedCategories();
+@let activeCategoryPath = activeCategories();
+@let categories = filteredCategories();
+@let links = extraLinks();
+
+<section
+	class="sticky top-0 z-20 overflow-hidden rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]"
+>
+	<div class="border-b border-[var(--c-border)] px-3 pt-2">
+		<div class="flex items-end gap-3">
+			<div
+				class="no-scrollbar flex min-w-0 flex-1 gap-4 overflow-x-auto text-[15px] font-semibold"
+			>
+				@for (category of categories; track category.slug) {
+					<button
+						class="shrink-0 border-b-2 px-0 pb-2 transition-colors duration-200"
+						[class.border-[var(--c-secondary)]]="
+							activeCategoryPath[0]?.slug === category.slug
+						"
+						[class.text-[var(--c-secondary)]]="
+							activeCategoryPath[0]?.slug === category.slug
+						"
+						[class.border-transparent]="activeCategoryPath[0]?.slug !== category.slug"
+						[class.text-[var(--c-text-muted)]]="
+							activeCategoryPath[0]?.slug !== category.slug
+						"
+						[attr.data-menu-category-slug]="category.slug"
+						(click)="selectCategory(category)"
+						type="button"
+					>
+						<span [translate]="category.name">{{ category.name }}</span>
+					</button>
+				}
+			</div>
+
+			@if (links.length) {
+				<nav class="flex shrink-0 items-center gap-1 pb-1" aria-label="Menu shortcuts">
+					@for (link of links; track link.url) {
+						<a
+							class="inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--c-text-muted)] transition-colors duration-200 hover:bg-[var(--c-bg-primary)] hover:text-[var(--c-secondary)]"
+							[routerLink]="link.url"
+							routerLinkActive="bg-[color:rgba(197,61,61,0.1)] text-[var(--c-secondary)]"
+							[routerLinkActiveOptions]="{ exact: true }"
+							translate
+							[translate]="{ ariaLabel: link.label ?? link.icon }"
+						>
+							<span class="material-symbols-outlined text-[21px]" aria-hidden="true">
+								{{ link.icon }}
+							</span>
+						</a>
+					}
+				</nav>
+			}
+		</div>
+	</div>
+
+	@for (selectedCategory of selectedCategories; track selectedCategory.slug; let level = $index) {
+		@if (selectedCategory.children?.length) {
+			<div
+				class="border-b border-[var(--c-border)] bg-[var(--c-bg-primary)]/50 px-2 py-2 last:border-b-0"
+			>
+				<div class="no-scrollbar flex gap-2 overflow-x-auto">
+					@for (childCategory of selectedCategory.children; track childCategory.slug) {
+						<button
+							class="shrink-0 rounded-[0.65rem] px-3 py-1.5 text-[13px] font-semibold transition-colors duration-200 shadow-[0_0_0_1px_var(--c-border)_inset]"
+							[class.bg-[var(--c-secondary)]]="
+								activeCategoryPath[level + 1]?.slug === childCategory.slug
+							"
+							[class.text-[var(--c-bg-primary)]]="
+								activeCategoryPath[level + 1]?.slug === childCategory.slug
+							"
+							[class.bg-[var(--c-bg-secondary)]]="
+								activeCategoryPath[level + 1]?.slug !== childCategory.slug
+							"
+							[class.text-[var(--c-secondary)]]="
+								activeCategoryPath[level + 1]?.slug !== childCategory.slug
+							"
+							[attr.data-menu-category-slug]="childCategory.slug"
+							(click)="
+								selectCategory(
+									childCategory,
+									selectedCategories.slice(0, level + 1)
+								)
+							"
+							type="button"
+						>
+							<span [translate]="childCategory.name">{{ childCategory.name }}</span>
+						</button>
+					}
+				</div>
+			</div>
+		}
+	}
+</section>

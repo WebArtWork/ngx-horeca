@@ -1,0 +1,500 @@
+<main class="mx-auto max-w-[var(--container)] px-3 pb-8 pt-3 sm:px-4 sm:pb-10">
+	<section
+		class="socials-shell overflow-hidden rounded-[1.4rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]"
+	>
+		<div class="border-b border-[var(--c-border)] px-4 py-5 sm:px-6 sm:py-6">
+			<p
+				class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+			>
+				<span [translate]="'Ð¡Ð¾Ñ†Ð¼ÐµÑ€ÐµÐ¶Ñ–'">{{ 'Ð¡Ð¾Ñ†Ð¼ÐµÑ€ÐµÐ¶Ñ–' }}</span>
+			</p>
+			<h1 class="mt-2 text-[1.8rem] font-semibold leading-9 text-[var(--c-text-secondary)]">
+				<span [translate]="'ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð¸ Ñ‚Ð° ÑÐ¾Ñ†Ñ–Ð°Ð»ÑŒÐ½Ñ– Ð¼ÐµÑ€ÐµÐ¶Ñ– Horeca'">{{
+					'ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð¸ Ñ‚Ð° ÑÐ¾Ñ†Ñ–Ð°Ð»ÑŒÐ½Ñ– Ð¼ÐµÑ€ÐµÐ¶Ñ– Horeca'
+				}}</span>
+			</h1>
+			<p class="mt-2 max-w-[42rem] text-sm leading-6 text-[var(--c-text-muted)]">
+				<span
+					[translate]="'Ð”ÐµÐ¼Ð¾-Ð´Ð°Ð½Ñ– Ð´Ð»Ñ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñƒ: Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½, email, Ð°Ð´Ñ€ÐµÑÐ°, Ð¼ÐµÑÐµÐ½Ð´Ð¶ÐµÑ€Ð¸ Ñ‚Ð° ÑÐ¾Ñ†Ñ–Ð°Ð»ÑŒÐ½Ñ– Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ð¸ Ð´Ð»Ñ HoReCa Ð±Ñ–Ð·Ð½ÐµÑÑƒ.'"
+					>{{
+						'Ð”ÐµÐ¼Ð¾-Ð´Ð°Ð½Ñ– Ð´Ð»Ñ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñƒ: Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½, email, Ð°Ð´Ñ€ÐµÑÐ°, Ð¼ÐµÑÐµÐ½Ð´Ð¶ÐµÑ€Ð¸ Ñ‚Ð° ÑÐ¾Ñ†Ñ–Ð°Ð»ÑŒÐ½Ñ– Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ð¸ Ð´Ð»Ñ HoReCa Ð±Ñ–Ð·Ð½ÐµÑÑƒ.'
+					}}</span
+				>
+			</p>
+		</div>
+
+		<div class="grid gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_18rem_minmax(0,1fr)] lg:p-6">
+			<div class="space-y-4">
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					[href]="companyPhoneHref"
+					translate
+					[translate]="{ ariaLabel: 'Ð—Ð°Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½ÑƒÐ²Ð°Ñ‚Ð¸ Ð´Ð¾ Horeca' }"
+					[vars]="companyVars"
+				>
+					<div class="flex items-start gap-4">
+						<span
+							class="icon-wrap mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-semibold"
+							aria-hidden="true"
+						>
+							â˜Ž
+						</span>
+
+						<div class="min-w-0">
+							<p
+								class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+							>
+								<span [translate]="'Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½'">{{ 'Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½' }}</span>
+							</p>
+							<p class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
+								{{ company.phone }}
+							</p>
+							<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+								<span
+									[translate]="'Ð”ÐµÐ¼Ð¾-Ð½Ð¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ Ð´Ð»Ñ Ð±Ñ€Ð¾Ð½ÑŽÐ²Ð°Ð½Ð½Ñ ÑÑ‚Ð¾Ð»Ð¸ÐºÐ°, Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸ Ð°Ð±Ð¾ ÑƒÑ‚Ð¾Ñ‡Ð½ÐµÐ½Ð½Ñ Ð´ÐµÑ‚Ð°Ð»ÐµÐ¹.'"
+									>{{
+										'Ð”ÐµÐ¼Ð¾-Ð½Ð¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ Ð´Ð»Ñ Ð±Ñ€Ð¾Ð½ÑŽÐ²Ð°Ð½Ð½Ñ ÑÑ‚Ð¾Ð»Ð¸ÐºÐ°, Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸ Ð°Ð±Ð¾ ÑƒÑ‚Ð¾Ñ‡Ð½ÐµÐ½Ð½Ñ Ð´ÐµÑ‚Ð°Ð»ÐµÐ¹.'
+									}}</span
+								>
+							</p>
+						</div>
+					</div>
+				</a>
+
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					[href]="companyEmailHref"
+					translate
+					[translate]="{ ariaLabel: 'ÐÐ°Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Horeca Ð½Ð° email' }"
+					[vars]="companyVars"
+				>
+					<div class="flex items-start gap-4">
+						<span
+							class="icon-wrap mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-semibold"
+							aria-hidden="true"
+						>
+							@
+						</span>
+
+						<div class="min-w-0">
+							<p
+								class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+							>
+								<span [translate]="'Ð•Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð° Ð¿Ð¾ÑˆÑ‚Ð°'">{{ 'Ð•Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð° Ð¿Ð¾ÑˆÑ‚Ð°' }}</span>
+							</p>
+							<p
+								class="mt-2 break-all text-lg font-semibold text-[var(--c-text-secondary)]"
+							>
+								{{ company.email }}
+							</p>
+							<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+								<span
+									[translate]="'Ð”ÐµÐ¼Ð¾-email Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸Ñ‚Ñ–Ð² Ñ‰Ð¾Ð´Ð¾ Ð¿Ð¾Ð´Ñ–Ð¹, ÑÐ²ÑÑ‚ÐºÑƒÐ²Ð°Ð½ÑŒ Ñ– Ð¿Ð°Ñ€Ñ‚Ð½ÐµÑ€ÑÑ‚Ð²Ð°.'"
+									>{{
+										'Ð”ÐµÐ¼Ð¾-email Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸Ñ‚Ñ–Ð² Ñ‰Ð¾Ð´Ð¾ Ð¿Ð¾Ð´Ñ–Ð¹, ÑÐ²ÑÑ‚ÐºÑƒÐ²Ð°Ð½ÑŒ Ñ– Ð¿Ð°Ñ€Ñ‚Ð½ÐµÑ€ÑÑ‚Ð²Ð°.'
+									}}</span
+								>
+							</p>
+						</div>
+					</div>
+				</a>
+
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾-Ð°Ð´Ñ€ÐµÑÑƒ Horeca Ð½Ð° Ð¼Ð°Ð¿Ñ–' }"
+				>
+					<div class="flex items-start gap-4">
+						<span
+							class="icon-wrap mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-semibold"
+							aria-hidden="true"
+						>
+							âŒ–
+						</span>
+
+						<div class="min-w-0">
+							<p
+								class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+							>
+								<span [translate]="'ÐÐ´Ñ€ÐµÑÐ°'">{{ 'ÐÐ´Ñ€ÐµÑÐ°' }}</span>
+							</p>
+							<p
+								class="mt-2 text-lg font-semibold leading-7 text-[var(--c-text-secondary)]"
+							>
+								Ð²ÑƒÐ». Ð“Ð¾ÑÑ‚Ð¸Ð½Ð½Ð°, 10, ÐšÐ°Ð¼'ÑÐ½ÐµÑ†ÑŒ-ÐŸÐ¾Ð´Ñ–Ð»ÑŒÑÑŒÐºÐ¸Ð¹
+							</p>
+							<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+								<span
+									[translate]="'Ð”ÐµÐ¼Ð¾-Ð°Ð´Ñ€ÐµÑÐ° Ð´Ð»Ñ Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½Ñƒ, ÐºÐ°Ñ„Ðµ, Ð³Ð¾Ñ‚ÐµÐ»ÑŽ Ð°Ð±Ð¾ ÐºÐµÐ¹Ñ‚ÐµÑ€Ð¸Ð½Ð³Ð¾Ð²Ð¾Ð³Ð¾ Ð±Ñ–Ð·Ð½ÐµÑÑƒ.'"
+									>{{
+										'Ð”ÐµÐ¼Ð¾-Ð°Ð´Ñ€ÐµÑÐ° Ð´Ð»Ñ Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½Ñƒ, ÐºÐ°Ñ„Ðµ, Ð³Ð¾Ñ‚ÐµÐ»ÑŽ Ð°Ð±Ð¾ ÐºÐµÐ¹Ñ‚ÐµÑ€Ð¸Ð½Ð³Ð¾Ð²Ð¾Ð³Ð¾ Ð±Ñ–Ð·Ð½ÐµÑÑƒ.'
+									}}</span
+								>
+							</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div
+				class="logo-panel relative flex min-h-[18rem] items-center justify-center rounded-[1.25rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-6 shadow-[var(--shadow-sm)]"
+			>
+				<div class="absolute inset-0 opacity-70" aria-hidden="true"></div>
+				<div class="relative text-center">
+					<img
+						class="mx-auto h-auto w-[11rem] drop-shadow-[0_14px_30px_rgba(0,0,0,0.16)] sm:w-[12.5rem]"
+						ngSrc="logo.webp"
+						[alt]="company.name"
+						width="720"
+						height="720"
+						priority
+					/>
+					<p
+						class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						{{ company.name }}
+					</p>
+				</div>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Telegram Horeca' }"
+				>
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">Telegram</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">@horeca_demo</p>
+				</a>
+
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Viber Horeca' }"
+					[vars]="companyVars"
+				>
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">Viber</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+						{{ company.phone }}
+					</p>
+				</a>
+
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ WhatsApp Horeca' }"
+					[vars]="companyVars"
+				>
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">WhatsApp</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+						{{ company.phone }}
+					</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="border-t border-[var(--c-border)] px-4 py-6 sm:px-6 lg:px-8">
+			<form
+				class="mb-5 grid gap-4 rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] lg:grid-cols-[minmax(0,1fr)_12rem]"
+				[formRoot]="contactForm"
+			>
+				<div class="grid gap-4">
+					<label class="block">
+						<span class="flex items-center gap-2 text-sm font-semibold text-[var(--c-text-secondary)]">
+							<span>
+								<span [translate]="'Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½'">{{ 'Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½' }}</span>
+								<span class="text-[var(--c-secondary)]" aria-hidden="true">*</span>
+							</span>
+							<span
+								class="rounded-full bg-[color:rgba(197,61,61,0.14)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--c-secondary)]"
+								[translate]="'ÐžÐ±Ð¾Ð²â€™ÑÐ·ÐºÐ¾Ð²Ð¾'"
+							>
+								{{ 'ÐžÐ±Ð¾Ð²â€™ÑÐ·ÐºÐ¾Ð²Ð¾' }}
+							</span>
+						</span>
+						<input
+							class="mt-2 w-full rounded-[0.9rem] border border-[var(--c-secondary)] bg-[var(--c-bg-tertiary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] shadow-[var(--shadow-sm)] outline-none ring-1 ring-[color:rgba(197,61,61,0.24)] transition-colors focus:border-[var(--c-secondary)] focus:ring-2"
+							type="tel"
+							autocomplete="tel"
+							[attr.placeholder]="company.phone"
+							[formField]="contactForm.phone"
+							[attr.aria-required]="true"
+							[attr.aria-invalid]="contactForm.phone().invalid()"
+							aria-describedby="social-contact-phone-help"
+						/>
+						@if (contactForm.phone().touched() && contactForm.phone().invalid()) {
+							<p
+								id="social-contact-phone-help"
+								class="mt-2 text-xs font-semibold text-[var(--c-secondary)]"
+							>
+								<span [translate]="'ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ Ð¾Ð±Ð¾Ð²â€™ÑÐ·ÐºÐ¾Ð²Ð¸Ð¹'">
+									{{ 'ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ Ð¾Ð±Ð¾Ð²â€™ÑÐ·ÐºÐ¾Ð²Ð¸Ð¹' }}
+								</span>
+							</p>
+						} @else {
+							<p
+								id="social-contact-phone-help"
+								class="mt-2 text-xs font-medium text-[var(--c-text-muted)]"
+							>
+								<span [translate]="'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±ÐµÐ½ Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð±Ñ€Ð¾Ð½ÑŽÐ²Ð°Ð½Ð½Ñ'">
+									{{ 'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±ÐµÐ½ Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð±Ñ€Ð¾Ð½ÑŽÐ²Ð°Ð½Ð½Ñ' }}
+								</span>
+							</p>
+						}
+					</label>
+
+					<label class="block">
+						<span class="flex items-center gap-2 text-sm font-semibold text-[var(--c-text-secondary)]">
+							<span [translate]="'ÐŸÐ¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ'">{{ 'ÐŸÐ¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ' }}</span>
+						</span>
+						<textarea
+							class="mt-2 min-h-28 w-full resize-y rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] shadow-[var(--shadow-sm)] outline-none transition-colors focus:border-[var(--c-secondary)]"
+							[formField]="contactForm.message"
+							aria-describedby="social-contact-message-help"
+						></textarea>
+						<p
+							id="social-contact-message-help"
+							class="mt-2 text-xs font-medium text-[var(--c-text-muted)]"
+						>
+							<span [translate]="'ÐÐ°Ð´Ñ–ÑˆÐ»Ñ–Ñ‚ÑŒ Ð¿Ñ€ÑÐ¼Ðµ Ð·Ð°Ð¿Ð¸Ñ‚Ð°Ð½Ð½Ñ Ð°Ð±Ð¾ Ð·Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ.'">
+								{{ 'ÐÐ°Ð´Ñ–ÑˆÐ»Ñ–Ñ‚ÑŒ Ð¿Ñ€ÑÐ¼Ðµ Ð·Ð°Ð¿Ð¸Ñ‚Ð°Ð½Ð½Ñ Ð°Ð±Ð¾ Ð·Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ.' }}
+							</span>
+						</p>
+					</label>
+				</div>
+
+				<div class="flex flex-col justify-end">
+					<button
+						class="ui-btn ui-btn-primary justify-center disabled:cursor-not-allowed disabled:opacity-60"
+						type="submit"
+						[disabled]="!!submittedRequest()"
+					>
+						<span [translate]="'ÐÐ°Ð´Ñ–ÑÐ»Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ'">{{ 'ÐÐ°Ð´Ñ–ÑÐ»Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ' }}</span>
+					</button>
+
+					@if (submitMessage()) {
+						<div class="mt-3 rounded-[0.9rem] bg-[color:rgba(70,130,90,0.12)] p-3 text-sm font-semibold leading-6 text-[var(--c-text-secondary)]">
+							<span [translate]="submitMessage()">{{ submitMessage() }}</span>
+						</div>
+					}
+
+					@if (submitError()) {
+						<div class="mt-3 rounded-[0.9rem] bg-[color:rgba(197,61,61,0.14)] p-3 text-sm font-semibold leading-6 text-[var(--c-secondary)]">
+							<span [translate]="submitError()">{{ submitError() }}</span>
+						</div>
+					}
+				</div>
+			</form>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Instagram Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Instagram
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">@horeca.demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Facebook Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Facebook
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">/horeca.demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ TikTok Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						TikTok
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">@horeca.demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ YouTube Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						YouTube
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">@horeca-demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Threads Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Threads
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">@horeca.demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ X Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						X
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">@horeca_demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ LinkedIn Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						LinkedIn
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">Horeca Demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Pinterest Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Pinterest
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">horeca-demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Google Business Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Google Business
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">Horeca Demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Tripadvisor Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Tripadvisor
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">Horeca Demo</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Bolt Food Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Bolt Food
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">
+						<span [translate]="'Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ°'">{{ 'Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ°' }}</span>
+					</p>
+				</a>
+
+				<a
+					class="social-card flex min-h-[9rem] flex-col justify-between rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://horeca.itkamianets.com/"
+					target="_blank"
+					rel="noreferrer nofollow"
+					translate
+					[translate]="{ ariaLabel: 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð´ÐµÐ¼Ð¾ Glovo Horeca' }"
+				>
+					<p
+						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+					>
+						Glovo
+					</p>
+					<p class="mt-3 text-sm leading-6 text-[var(--c-text-muted)]">
+						<span [translate]="'Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ°'">{{ 'Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ°' }}</span>
+					</p>
+				</a>
+			</div>
+		</div>
+	</section>
+</main>
